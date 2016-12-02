@@ -2,6 +2,8 @@ DIST_PATH   ?= /base/
 INSTALL_PATH ?= /host/
 CLOUD_CONFIG_PATH ?= /etc/cloud-configs/
 
+-include Makefile.*
+
 ## Render templates
 build:
 	find $(DIST_PATH) -type f -name '*.erb' | xargs -n 1 rewrite 
@@ -12,6 +14,7 @@ install: build
 
 ## Run cloudinit
 run: install
+	chroot $(INSTALL_PATH) systemctl daemon-reload
 	chroot $(INSTALL_PATH) find $(CLOUD_CONFIG_PATH) -name '*.yml' -exec /usr/bin/coreos-cloudinit -from-file={} \;
 
 ## Display a list of required environment variables
