@@ -14,4 +14,3 @@ WORKDIR /
 ADD dist/ /
 
 ENTRYPOINT ["/usr/bin/make"]
-
