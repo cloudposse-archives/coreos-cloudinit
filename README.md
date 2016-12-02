@@ -1,4 +1,4 @@
-# coreos-cloud-init
+# coreos-cloudinit
 Easily Bootstrap CoreOS Host Machine Using Docker Containers
 
 ## Usage

@@ -1,6 +1,6 @@
 DIST   ?= /base/
 TARGET ?= /host/
-CLOUD_INIT ?= /etc/cloudposse/cloud-init.yml
+CLOUD_CONFIG ?= /etc/cloudposse/cloud-config.yml
 
 install:
 	rsync -av $(DIST) $(TARGET)
@@ -8,4 +8,4 @@ install:
 	find $(TARGET) -type f -name '*.erb' | xargs rm
 
 cloud-init: install
-	chroot $(TARGET) /usr/bin/coreos-cloudinit -from-file=$(CLOUD_INIT)
+	chroot $(TARGET) /usr/bin/coreos-cloudinit -from-file=$(CLOUD_CONFIG)
