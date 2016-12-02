@@ -19,7 +19,7 @@ After=early-docker.service
 User=root
 Environment=DOCKER_HOST="unix:///var/run/early-docker.sock
 ExecStartPre=/usr/bin/mkdir -p /etc/cloud-configs
-ExecStart=/usr/bin/docker run --env-file=/etc/cloud-configs/env --volume=/:/host cloudposse/coreos-cloudinit run
+ExecStart=/usr/bin/docker run --rm --env-file=/etc/cloud-configs/env --volume=/:/host cloudposse/coreos-cloudinit run
 RemainAfterExit=yes
 Type=oneshot
 ```
