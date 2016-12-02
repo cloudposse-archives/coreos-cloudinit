@@ -16,7 +16,7 @@ run: install
 
 ## Display a list of required environment variables
 required-envs:
-	@grep -E -o "ENV\['.*?'\]" -R dist/base/ | \
+	@grep -E -o "ENV\['.*?'\]" -R $(DIST_PATH) | \
     cut -d\' -f2 |\
     sort -u | \
     sed 's/$$/=/g'
