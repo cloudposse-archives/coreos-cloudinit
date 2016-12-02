@@ -1,0 +1,16 @@
+#!/bin/bash
+template="$1"
+output="${template%%.erb}"
+if [ -z "$template" ]; then
+  echo "Usage: $0 [template.erb]"
+  exit 1
+fi
+
+if [ ! -f "$template" ]; then
+  echo "$template not found!"
+  exit 1
+fi
+
+erb "$template" > "$output"
+chown --reference="$template" "$output"
+chmod --reference="$template" "$output"
