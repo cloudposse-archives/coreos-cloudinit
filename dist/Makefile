@@ -1,4 +1,4 @@
-PATH_PATH   ?= /base/
+DIST_PATH   ?= /base/
 INSTALL_PATH ?= /host/
 CLOUD_CONFIG_PATH ?= /etc/cloud-configs/
 
