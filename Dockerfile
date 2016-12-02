@@ -5,8 +5,7 @@ ENV VERSION=1.0.0
 
 RUN apt-get update && \
     apt-get -y install ruby make rsync && \
-    mkdir /host && \
-    chown root:root -R dist/
+    mkdir /host
 
 VOLUME ["/host"]
 
